@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/gorilla/mux"
 	"log"
 	"net/http"
@@ -29,5 +30,7 @@ func GetAsyncSolution(language string, uuid string, success chan bool) {
 }
 
 func CheckSolution(language string, uuid string) bool {
-	return exec.Command("docker", "run", language+"_test", uuid).Run() == nil
+	err := exec.Command("docker", "run", language+"_test", uuid).Run()
+	fmt.Println(err)
+	return err == nil
 }

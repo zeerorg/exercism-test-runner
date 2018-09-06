@@ -1,0 +1,17 @@
+version: '3'
+services:
+  docker_in_docker:
+    build:
+      context: .
+      dockerfile: dockerfiles/dind/Dockerfile
+    privileged: true
+
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    links:
+      - "docker_in_docker:docker"
+    #    stdin_open: true
+    #    tty: true
+    #    entrypoint: /bin/sh
