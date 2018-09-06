@@ -14,7 +14,7 @@ For both windows and linux `go` and `docker` are the only dependencies which are
 ## How to build:
 1. Run `build_test_images.sh` it essential builds all images for test environment.
 2. `go build` and `go run` next should run the server.
-3. Visit `localhost:8000` to see if you get a `404 page not found` message.
+3. Visit `localhost:8000` to see if you get a `Exercism test server is running` message.
 
 ## Next steps:
 1. Setting up a test environment is the top priority.
