@@ -16,8 +16,11 @@ For both windows and linux `go` and `docker` are the only dependencies which are
 2. `go build` and `go run` next should run the server.
 3. Visit `localhost:8000` to see if you get a `Exercism test server is running` message.
 
+## Writing Tests
+1. Take help from `handler_test.go` file. Where python and welcome page tests are written.
+
 ## Next steps:
-1. Setting up a test environment is the top priority.
+1. Setting up a test environment is the top priority. Done.
 2. Adding support for javascript. And then more languages.
 
 Email : r.g.gupta@outlook.com for any questions or for contributions.

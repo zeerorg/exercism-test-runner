@@ -2,7 +2,7 @@ FROM python:3.6-stretch
 
 WORKDIR /home
 
-COPY bin/exercism_linux_64 /usr/bin/exercism
+COPY --from=exercism_build:latest /exercism /usr/bin/exercism
 COPY test_script.sh ./script.sh
 
 RUN chmod +x /usr/bin/exercism \
