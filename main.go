@@ -7,7 +7,7 @@ import (
 )
 type StrArray []string
 
-var supportedLanguages = StrArray{"python"}
+var supportedLanguages = StrArray{"python", "go"}
 
 func main() {
 	log.Fatal(http.ListenAndServe(":8000", getRouter()))
