@@ -15,10 +15,11 @@ A single GET request to `/test/{language}/{uuid}` will run the docker container 
 For both windows and linux `go` and `docker` are the only dependencies which are needed for project to run.
 
 ## How to build:
-1. Run `build_test_images.sh` it essential builds all images for test environment.
-2. `go build` and `go run` next should run the server.
-3. Visit `localhost:8000` to see if you get a `Exercism test server is running` message.
-4. Be sure to run the server from a user who has access to `docker` (root or in the docker group).
+1. Ensure you have your exercism token defined in environment variable "EXERCISM_TOKEN"
+2. Run `build_test_images.sh` it essential builds all images for test environment.
+3. `go build` and `go run` next should run the server.
+4. Visit `localhost:8000` to see if you get a `Exercism test server is running` message.
+5. Be sure to run the server from a user who has access to `docker` (root or in the docker group).
 
 ## Writing Tests
 1. Take help from `handler_test.go` file. Where python and welcome page tests are written.

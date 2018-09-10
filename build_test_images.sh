@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # cli
-docker build -t exercism_build dockerfiles/exercism_build
+docker build -t exercism_build --build-arg EXERCISM_TOKEN=$EXERCISM_TOKEN dockerfiles/exercism_build
 
 # language images
 declare -a supported_languages=("go" "python")

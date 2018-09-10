@@ -3,10 +3,10 @@ FROM python:3.6-stretch
 WORKDIR /home
 
 COPY --from=exercism_build:latest /exercism /usr/bin/exercism
+COPY --from=exercism_build:latest /root/.config/exercism/ /root/.config/exercism/
 COPY test_script.sh ./script.sh
 
 RUN chmod +x /usr/bin/exercism \
-        && exercism configure --token=3fe5769e-a849-4a33-9569-d652aa3cedfc --workspace=/home \
         && pip install pytest
 
 ENTRYPOINT ["bash", "./script.sh"]

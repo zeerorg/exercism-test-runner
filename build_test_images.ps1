@@ -1,4 +1,5 @@
-docker build -t exercism_build dockerfiles/exercism_build
+
+docker build --build-arg EXERCISM_TOKEN=$ENV:EXERCISM_TOKEN -t exercism_build dockerfiles/exercism_build
 
 $supported_languages = @("python", "go")
 
