@@ -99,6 +99,52 @@ func CreateTests(ts *httptest.Server, t *testing.T) []Test {
 			},
 		},
 		{
+			name: "Passing Go Test",
+			r: func() *http.Request {
+				req, err := http.NewRequest("GET", ts.URL+"/test/go/e9f052d8ec4949d9b755a97ce7543c75", nil)
+				if err != nil {
+					t.Fatal(err)
+				}
+				return req
+			}(),
+			testFunc: func(resp *http.Response) (err error) {
+				if resp.StatusCode != 200 {
+					return errors.New("Bad status Code")
+				}
+				var msg map[string]bool
+				err = json.NewDecoder(resp.Body).Decode(&msg)
+				if err != nil {
+					return err
+				} else if msg["result"] != true {
+					return errors.New("Wrong Result expected true got false")
+				}
+				return nil
+			},
+		},
+		{
+			name: "Failing Go Test",
+			r: func() *http.Request {
+				req, err := http.NewRequest("GET", ts.URL+"/test/go/06798ce0cf734b1db5ab79f7f3870b92", nil)
+				if err != nil {
+					t.Fatal(err)
+				}
+				return req
+			}(),
+			testFunc: func(resp *http.Response) (err error) {
+				if resp.StatusCode != 200 {
+					return errors.New("Bad status Code")
+				}
+				var msg map[string]bool
+				err = json.NewDecoder(resp.Body).Decode(&msg)
+				if err != nil {
+					return err
+				} else if msg["result"] != false {
+					return errors.New("Wrong Result expected false got true")
+				}
+				return nil
+			},
+		},
+		{
 			name: "Wrong language test",
 			r: func() *http.Request {
 				req, err := http.NewRequest("GET", ts.URL+"/test/haskell/d7058833975546f9a5b1f20fcd48cb63", nil)
