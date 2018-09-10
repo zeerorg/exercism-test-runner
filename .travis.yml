@@ -1,0 +1,14 @@
+sudo: required
+
+services:
+  - docker
+
+language: go
+go:
+  - 1.11
+
+before_install:
+  - bash ./build_test_images.sh
+
+script:
+  - go test -v
