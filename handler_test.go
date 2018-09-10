@@ -14,7 +14,7 @@ type Test struct {
 	testFunc func(resp *http.Response) (err error)
 }
 
-func TestWelcome(t *testing.T) {
+func TestHttpRequests(t *testing.T) {
 	ts := httptest.NewServer(getRouter())
 	defer ts.Close()
 
