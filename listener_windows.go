@@ -2,4 +2,10 @@ package main
 
 import "net"
 
-var Listener, _ = net.Listen("tcp", ":8000")
+func GetListener() net.Listener {
+	l, err := net.Listen("tcp", ":8080")
+	if err != nil {
+		panic(err)
+	}
+	return l
+}

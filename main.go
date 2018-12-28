@@ -14,7 +14,7 @@ func main() {
 	s := &http.Server{
 		Handler: getRouter(),
 	}
-	log.Fatal(s.Serve(Listener))
+	log.Fatal(s.Serve(GetListener()))
 }
 
 func getRouter() *mux.Router {
