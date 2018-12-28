@@ -9,8 +9,8 @@ import (
 )
 
 type Test struct {
-	name string
-	r *http.Request
+	name     string
+	r        *http.Request
 	testFunc func(resp *http.Response) (err error)
 }
 

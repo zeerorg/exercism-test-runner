@@ -8,7 +8,7 @@ import (
 )
 
 func Welcome(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Exercism test server is running")
+	fmt.Fprintln(w, "Exercism test server is running. Available Languages : ", supportedLanguages)
 }
 
 func RunTest(w http.ResponseWriter, r *http.Request) {
